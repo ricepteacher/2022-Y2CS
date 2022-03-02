@@ -1,0 +1,135 @@
+let canvasSize = 400;
+let gridSize = 9; // the number of rows and columns
+let cellSize = canvasSize / gridSize;
+
+let slider;
+
+function setup() {
+  createCanvas(canvasSize, canvasSize);
+  slider = createSlider(1, 4, 1);
+  frameRate(10);
+}
+
+function draw() {
+  background("white");
+  let step = slider.value();
+  if (step === 1) {             // "Step 1"
+    drawStripes();
+  } else if (step === 2) {      // "Step 2a"
+    drawChecks();
+  } else if (step === 3) {      // "Step 2b"
+    drawDiagonals();
+  } else if (step === 4) {      // "Step 3"
+    drawDiagonalsOfCircles();
+  }
+}
+
+////////////////////////////////////////////////////////////
+// Step 1
+
+function drawStripes() {
+  for (let row = 0; row < gridSize; row++) {
+
+    // TODO: determine these four properties
+    x = 0;
+    y = row*cellSize;
+    w = width
+    h = cellSize;
+
+    // TODO: replace true
+    if (row%2==0) {
+      fill("black");
+    } else {
+      fill("white");
+    }
+
+    rect(x, y, w, h);
+  }
+}
+
+////////////////////////////////////////////////////////////
+// Step 2a
+
+function drawChecks() {
+  for (let row = 0; row < gridSize; row++) {
+    for (let col = 0; col < gridSize; col++) {
+
+      // TODO: determine these four properties
+      x = 0;
+      y = 0;
+      width = 0;
+      height = 0;
+
+      // TODO: replace true
+      if (true) {
+        fill("black");
+      } else {
+        fill("white");
+      }
+
+      rect(x, y, width, height);
+
+    }
+  }
+}
+
+////////////////////////////////////////////////////////////
+// Step 2b
+
+function drawDiagonals() {
+  for (let row = 0; row < gridSize; row++) {
+    for (let col = 0; col < gridSize; col++) {
+
+      // TODO: replace true with conditions that
+      // identify whether the square at (row, col)
+      // is on the main- or anti-diagonal
+
+      let onMainDiagonal = true;
+      let onAntiDiagonal = true;
+
+      if (onMainDiagonal || onAntiDiagonal) {
+
+        // TODO
+
+      }
+    }
+  }
+}
+
+////////////////////////////////////////////////////////////
+// Step 3
+
+function drawDiagonalsOfCircles() {
+
+  const numRings = 7;
+
+  for (let row = 0; row < gridSize; row++) {
+    for (let col = 0; col < gridSize; col++) {
+
+      // TODO: same diagonal checks as above
+
+      let onMainDiagonal = true;
+      let onAntiDiagonal = true;
+
+      if (onMainDiagonal || onAntiDiagonal) {
+
+        for (let ring = 0; ring < numRings; ring++) {
+
+          // TODO: determine these three properties
+          x = 0;
+          y = 0;
+          diameter = 0;
+
+          // TODO: replace true
+          if (true) {
+            fill("black");
+          } else {
+            fill("white");
+          }
+
+          circle(x, y, diameter);
+        }
+      }
+    }
+  }
+}
